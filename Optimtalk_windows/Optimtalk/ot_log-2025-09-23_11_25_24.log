@@ -1,0 +1,76 @@
+Created from template: |append [ot_log-%y-%m-%d_%H_%M_%s.log] 
+Number of records: 100000
+Lifetime: unlimited
+Log format:
+date time severity {session id} <category> [source]
+label: message
+===================================================
+
+2025-Sep-23 11:25:24.280 ALW {N/A} <N/A> [OptimComponents Core]
+========== Log start ==========
+
+2025-Sep-23 11:25:24.280 INFO {N/A} <N/A> [OptimComponents Core]
+Created session with ID 'vxmlDialog_0'.
+
+2025-Sep-23 11:25:24.762 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Preparing document 'file:/C:/Users/blt3098a/Documents/Othman/AGENDA_V0/AGENDA_V0/gestion_agenda_v0.vxml'.
+
+2025-Sep-23 11:25:24.788 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Preparing of document 'file:/C:/Users/blt3098a/Documents/Othman/AGENDA_V0/AGENDA_V0/gestion_agenda_v0.vxml' completed.
+  result = success
+
+2025-Sep-23 11:25:24.788 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting document 'file:/C:/Users/blt3098a/Documents/Othman/AGENDA_V0/AGENDA_V0/gestion_agenda_v0.vxml'
+
+2025-Sep-23 11:25:24.798 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <form> with id 'agenda'; line 23; column 1.
+
+2025-Sep-23 11:25:24.798 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <block>; line 40; column 1.
+
+2025-Sep-23 11:25:24.798 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <field> with name 'num_abonne'; line 48; column 1.
+
+2025-Sep-23 11:25:24.818 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Waiting for user's input.
+
+2025-Sep-23 11:25:27.109 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User's input collection completed.
+
+2025-Sep-23 11:25:27.112 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+The following input was collected:
+  utterance = trois mille
+  confidence = 1
+  mode = voice
+
+2025-Sep-23 11:25:27.112 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <filled>; line 61; column 3.
+
+2025-Sep-23 11:25:27.119 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+An event 'error.semantic' was added to the event queue
+
+2025-Sep-23 11:25:27.119 ERR  {vxmlDialog_0} <System message> [VoiceXML interpreter]
+An unhandled error event 'error.semantic' occurred (It will be processed by a default platform error handler). The following message was associated with the event: document 'file:/C:/Users/blt3098a/Documents/Othman/AGENDA_V0/AGENDA_V0/gestion_agenda_v0.vxml', line 65; An internally generated script cannot be evaluated. The following ECMAScript error occurred: ReferenceError: False is not defined
+
+2025-Sep-23 11:25:27.128 WARN {vxmlDialog_0} <Alarm> [VoiceXML interpreter]
+optimtalk.interpretationError: An unhandled error event 'error.semantic' occurred (It will be processed by a default platform error handler). The following message was associated with the event: document 'file:/C:/Users/blt3098a/Documents/Othman/AGENDA_V0/AGENDA_V0/gestion_agenda_v0.vxml', line 65; An internally generated script cannot be evaluated. The following ECMAScript error occurred: ReferenceError: False is not defined
+
+2025-Sep-23 11:25:27.128 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Processing event 'error.semantic'.
+  Event origin = document 'file:/C:/Users/blt3098a/Documents/Othman/AGENDA_V0/AGENDA_V0/gestion_agenda_v0.vxml'; line 65
+  Handler location = platform default handler
+
+2025-Sep-23 11:25:27.129 ERR  {vxmlDialog_0} <user's application> [VoiceXML interpreter]
+Unhandled error event 'error.semantic' occurred. Associated message: document 'file:/C:/Users/blt3098a/Documents/Othman/AGENDA_V0/AGENDA_V0/gestion_agenda_v0.vxml', line 65; An internally generated script cannot be evaluated. The following ECMAScript error occurred: ReferenceError: False is not defined
+
+2025-Sep-23 11:25:27.129 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpretation finished.
+  value returned by <exit> = 
+{
+}
+  value returned by <disconnect> = 
+undefined
+
+2025-Sep-23 11:25:27.234 INFO {N/A} <N/A> [OptimComponents Core]
+Deleted session with ID 'vxmlDialog_0'.
+

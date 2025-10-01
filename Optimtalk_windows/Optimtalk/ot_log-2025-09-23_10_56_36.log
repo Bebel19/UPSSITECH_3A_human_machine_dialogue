@@ -1,0 +1,78 @@
+Created from template: |append [ot_log-%y-%m-%d_%H_%M_%s.log] 
+Number of records: 100000
+Lifetime: unlimited
+Log format:
+date time severity {session id} <category> [source]
+label: message
+===================================================
+
+2025-Sep-23 10:56:36.285 ALW {N/A} <N/A> [OptimComponents Core]
+========== Log start ==========
+
+2025-Sep-23 10:56:36.285 INFO {N/A} <N/A> [OptimComponents Core]
+Created session with ID 'vxmlDialog_0'.
+
+2025-Sep-23 10:56:36.765 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Preparing document 'file:/C:/Users/blt3098a/Documents/Othman/AGENDA_V0/AGENDA_V0/gestion_agenda_v0.vxml'.
+
+2025-Sep-23 10:56:36.769 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Preparing of document 'file:/C:/Users/blt3098a/Documents/Othman/AGENDA_V0/AGENDA_V0/gestion_agenda_v0.vxml' completed.
+  result = success
+
+2025-Sep-23 10:56:36.769 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting document 'file:/C:/Users/blt3098a/Documents/Othman/AGENDA_V0/AGENDA_V0/gestion_agenda_v0.vxml'
+
+2025-Sep-23 10:56:36.774 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <form> with id 'agenda'; line 23; column 1.
+
+2025-Sep-23 10:56:36.774 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <block>; line 40; column 1.
+
+2025-Sep-23 10:56:36.779 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <field> with name 'num_abonne'; line 48; column 1.
+
+2025-Sep-23 10:56:36.799 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Waiting for user's input.
+
+2025-Sep-23 10:56:42.959 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User's input collection completed.
+
+2025-Sep-23 10:56:42.962 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+The following input was collected:
+  utterance = c est le deux cent
+  confidence = 1
+  mode = voice
+
+2025-Sep-23 10:56:42.969 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <filled>; line 61; column 3.
+
+2025-Sep-23 10:56:42.974 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <field> with name 'confirm'; line 70; column 3.
+
+2025-Sep-23 10:56:42.985 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Waiting for user's input.
+
+2025-Sep-23 10:56:45.698 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User's input collection completed.
+
+2025-Sep-23 10:56:45.702 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+The following input was collected:
+  utterance = affirmatif
+  confidence = 1
+  mode = voice
+
+2025-Sep-23 10:56:45.702 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <filled>; line 85; column 10.
+
+2025-Sep-23 10:56:45.702 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <block>; line 101; column 1.
+
+2025-Sep-23 10:56:45.712 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpretation finished.
+  value returned by <exit> = undefined
+  value returned by <disconnect> = 
+undefined
+
+2025-Sep-23 10:56:45.825 INFO {N/A} <N/A> [OptimComponents Core]
+Deleted session with ID 'vxmlDialog_0'.
+

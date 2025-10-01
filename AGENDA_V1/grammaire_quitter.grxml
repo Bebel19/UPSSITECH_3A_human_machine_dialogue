@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar root="Aide" version="1.0" xml:lang="fr">
+
+  <meta name="description" content="grammaire aide"/>
+  <meta name="author" content="Belgnaoui Othman"/>
+  <meta name="copyright" content="SRI UPSSITECH"/>
+
+  <rule id="Aide" >
+        <item repeat="0-1"> sors moi de la </item>
+        <item repeat="0-1"> quitter </item>
+        <item repeat="0-1"> au revoir </item>
+        <item repeat="0-1"> bye </item>
+        <item repeat="0-1"> hasta luego </item>
+        <item repeat="0-1"> pitie </item>
+        <item repeat="0-1"> il est dix sept heure quarante cinq </item>
+        <item repeat="0-1"> sept heure quarante cinq </item>
+        <item repeat="0-1"> cyprien </item>
+        <item repeat="0-1"> tolotra </item>
+        <item repeat="0-1"> jpp </item>
+  </rule>
+
+</grammar>

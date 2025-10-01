@@ -1,0 +1,70 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- fichier grammaire_horaire.grxml -->
+<!-- reconnaitre une heure , lui attribuer une valeur numerique .nb -->
+<!-- tout en memorisant la suite de mots qui correspond .text -->
+
+<grammar version="1.0" root="horaire" xml:lang="fr">
+
+<meta name="description" content="grammaire horaire"/>
+<meta name="author" content="Belgnaoui Othman"/>
+<meta name="copyright" content="free for any purpose"/>
+
+  <rule id="horaire" scope="public">
+    <one-of>
+      <!-- Cas particuliers -->
+      <item> midi <tag> out.heures = 12; out.minutes = 0; out.text = "midi"; </tag> </item>
+      <item> minuit <tag> out.heures = 0; out.minutes = 0; out.text = "minuit"; </tag> </item>
+
+      <!-- Heures seules -->
+      <item>
+        <ruleref uri="#heures"/>
+        <tag> out.heures = rules.heures.nb; out.minutes = 0; out.text = rules.heures.text; </tag>
+      </item>
+
+      <!-- Heures + minutes -->
+      <item>
+        <ruleref uri="#heures"/>
+        <ruleref uri="#minutes"/>
+        <tag> 
+          out.heures = rules.heures.nb; 
+          out.minutes = rules.minutes.nb; 
+          out.text = rules.heures.text + " " + rules.minutes.text; 
+        </tag>
+      </item>
+    </one-of>
+  </rule>
+
+    <!-- Heures -->
+  <rule id="heures">
+    <one-of>
+      <item> une heure <tag> out.nb = 1; out.text = meta.current().text; </tag></item>
+      <item> deux heures <tag> out.nb = 2; out.text = meta.current().text; </tag></item>
+      <item> trois heures <tag> out.nb = 3; out.text = meta.current().text; </tag></item>
+      <item> quatre heures <tag> out.nb = 4; out.text = meta.current().text; </tag></item>
+      <item> cinq heures <tag> out.nb = 5; out.text = meta.current().text; </tag></item>
+      <item> six heures <tag> out.nb = 6; out.text = meta.current().text; </tag></item>
+      <item> sept heures <tag> out.nb = 7; out.text = meta.current().text; </tag></item>
+      <item> huit heures <tag> out.nb = 8; out.text = meta.current().text; </tag></item>
+      <item> neuf heures <tag> out.nb = 9; out.text = meta.current().text; </tag></item>
+      <item> dix heures <tag> out.nb = 10; out.text = meta.current().text; </tag></item>
+      <item> onze heures <tag> out.nb = 11; out.text = meta.current().text; </tag></item>
+      <item> douze heures <tag> out.nb = 12; out.text = meta.current().text; </tag></item>
+      <item> treize heures <tag> out.nb = 13; out.text = meta.current().text; </tag> </item>
+      <item> quatorze heures <tag> out.nb = 14; out.text = meta.current().text; </tag> </item>
+      <item> quinze heures <tag> out.nb = 15; out.text = meta.current().text; </tag> </item>
+      <item> seize heures <tag> out.nb = 16; out.text = meta.current().text; </tag> </item>
+      <item> dix sept heures <tag> out.nb = 17; out.text = meta.current().text; </tag> </item>
+      <item> dix huit heures <tag> out.nb = 18; out.text = meta.current().text; </tag> </item>
+      <item> dix neuf heures <tag> out.nb = 19; out.text = meta.current().text; </tag> </item>
+    </one-of>
+  </rule>
+
+  <!-- Minutes -->
+  <rule id="minutes">
+      <ruleref uri="grammaire_nombre_v3.grxml#nombre" />
+            <tag> out.nb = rules.nombre.nb ; out.text = meta.nombre.text </tag>
+
+  </rule>
+
+</grammar>

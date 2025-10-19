@@ -126,7 +126,7 @@ Au revoir !
 </block>
 
 <!-- Champ/Slot DEMANDE DE LA DATE -->
-<field name="date_choisie">
+<field name="date">
 
 	 <prompt> Quel est la date de la reservation ? </prompt>
 
@@ -142,12 +142,17 @@ Au revoir !
 	 <filled>
 
                  <if cond="mode_trace=='True'">
-                   TRACE VALEUR  <value expr="date_choisie.text" />
+                   TRACE VALEUR  <value expr="date_choisie" />
                  </if>	
 
+                 <if cond="date_choisie &lt; now">
+                   La date est passee.
+		   <clear namelist="date_choisie"/>
                
-		   La date choisie est le <value expr="date_choisie.text" /> 
+		   <else/>
+		   La date choisie est le <value expr="date_choisie" /> 
 
+                 </if>	
 
          </filled>
   </field>

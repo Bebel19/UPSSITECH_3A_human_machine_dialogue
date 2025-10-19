@@ -1,0 +1,12 @@
+Created from template: |append [ot_log-ERR-%y-%m-%d_%H_%M_%s.log] 
+Number of records: unlimited
+Lifetime: unlimited
+Log format:
+date time severity {session id} <category> [source]
+label: message
+===================================================
+
+2025-Oct-19 18:53:26.547 ERR  {vxmlDialog_0} <System message> [Thread]
+The thread is about to be killed unconditionally.
+  thread name = Resource loader for 'file:/H:/Telechargement/UPSSITECH_3A_human_machine_dialogue-main/UPSSITECH_3A_human_machine_dialogue-main/AGENDA_V1/grammaire_quitter.grxml'
+

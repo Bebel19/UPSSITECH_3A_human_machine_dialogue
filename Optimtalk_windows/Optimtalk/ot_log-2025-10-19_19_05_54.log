@@ -1,0 +1,64 @@
+Created from template: |append [ot_log-%y-%m-%d_%H_%M_%s.log] 
+Number of records: 100000
+Lifetime: unlimited
+Log format:
+date time severity {session id} <category> [source]
+label: message
+===================================================
+
+2025-Oct-19 19:05:54.074 ALW {N/A} <N/A> [OptimComponents Core]
+========== Log start ==========
+
+2025-Oct-19 19:05:54.074 INFO {N/A} <N/A> [OptimComponents Core]
+Created session with ID 'vxmlDialog_0'.
+
+2025-Oct-19 19:05:54.185 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Preparing document 'file:/H:/Telechargement/UPSSITECH_3A_human_machine_dialogue-main/UPSSITECH_3A_human_machine_dialogue-main/AGENDA_V1/gestion_agenda_v1.vxml'.
+
+2025-Oct-19 19:05:54.195 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Preparing of document 'file:/H:/Telechargement/UPSSITECH_3A_human_machine_dialogue-main/UPSSITECH_3A_human_machine_dialogue-main/AGENDA_V1/gestion_agenda_v1.vxml' completed.
+  result = success
+
+2025-Oct-19 19:05:54.195 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting document 'file:/H:/Telechargement/UPSSITECH_3A_human_machine_dialogue-main/UPSSITECH_3A_human_machine_dialogue-main/AGENDA_V1/gestion_agenda_v1.vxml'
+
+2025-Oct-19 19:05:54.214 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <form> with id 'agenda'; line 33; column 1.
+
+2025-Oct-19 19:05:54.214 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <block>; line 51; column 1.
+
+2025-Oct-19 19:05:54.221 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting <field> with name 'num_abonne'; line 59; column 1.
+
+2025-Oct-19 19:05:54.256 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Waiting for user's input.
+
+2025-Oct-19 19:05:56.539 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User's input collection completed.
+
+2025-Oct-19 19:05:56.542 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+The following input was collected:
+  utterance = bye
+  confidence = 1
+  mode = voice
+
+2025-Oct-19 19:05:56.542 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+An event 'quit' was added to the event queue
+
+2025-Oct-19 19:05:56.543 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Processing event 'quit'.
+  Event origin = document 'file:/H:/Telechargement/UPSSITECH_3A_human_machine_dialogue-main/UPSSITECH_3A_human_machine_dialogue-main/AGENDA_V1/gestion_agenda_v1.vxml'
+  Handler location = document 'file:/H:/Telechargement/UPSSITECH_3A_human_machine_dialogue-main/UPSSITECH_3A_human_machine_dialogue-main/AGENDA_V1/gestion_agenda_v1.vxml'; line 25, column 1
+
+2025-Oct-19 19:05:56.547 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpretation finished.
+  value returned by <exit> = 
+{
+}
+  value returned by <disconnect> = 
+undefined
+
+2025-Oct-19 19:05:56.667 INFO {N/A} <N/A> [OptimComponents Core]
+Deleted session with ID 'vxmlDialog_0'.
+

@@ -1,0 +1,55 @@
+Created from template: |append [ot_log-%y-%m-%d_%H_%M_%s.log] 
+Number of records: 100000
+Lifetime: unlimited
+Log format:
+date time severity {session id} <category> [source]
+label: message
+===================================================
+
+2025-Oct-19 18:43:35.208 ALW {N/A} <N/A> [OptimComponents Core]
+========== Log start ==========
+
+2025-Oct-19 18:43:35.208 INFO {N/A} <N/A> [OptimComponents Core]
+Created session with ID 'vxmlDialog_0'.
+
+2025-Oct-19 18:52:26.463 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Preparing document 'file:/H:/Telechargement/UPSSITECH_3A_human_machine_dialogue-main/UPSSITECH_3A_human_machine_dialogue-main/AGENDA_V1/gestion_agenda_v1.vxml'.
+
+2025-Oct-19 18:52:26.502 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Preparing of document 'file:/H:/Telechargement/UPSSITECH_3A_human_machine_dialogue-main/UPSSITECH_3A_human_machine_dialogue-main/AGENDA_V1/gestion_agenda_v1.vxml' completed.
+  result = success
+
+2025-Oct-19 18:52:26.502 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+Interpreting document 'file:/H:/Telechargement/UPSSITECH_3A_human_machine_dialogue-main/UPSSITECH_3A_human_machine_dialogue-main/AGENDA_V1/gestion_agenda_v1.vxml'
+
+2025-Oct-19 18:52:28.007 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User has been disconnected.
+
+2025-Oct-19 18:52:28.007 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+An event 'connection.disconnect.hangup' was added to the event queue
+
+2025-Oct-19 18:52:28.938 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User has been disconnected.
+
+2025-Oct-19 18:52:30.707 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User has been disconnected.
+
+2025-Oct-19 18:52:31.006 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User has been disconnected.
+
+2025-Oct-19 18:52:36.835 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User has been disconnected.
+
+2025-Oct-19 18:52:37.149 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User has been disconnected.
+
+2025-Oct-19 18:52:37.368 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User has been disconnected.
+
+2025-Oct-19 18:52:37.549 INFO {vxmlDialog_0} <Interpretation tracking> [VoiceXML interpreter]
+User has been disconnected.
+
+2025-Oct-19 18:53:26.547 ERR  {vxmlDialog_0} <System message> [Thread]
+The thread is about to be killed unconditionally.
+  thread name = Resource loader for 'file:/H:/Telechargement/UPSSITECH_3A_human_machine_dialogue-main/UPSSITECH_3A_human_machine_dialogue-main/AGENDA_V1/grammaire_quitter.grxml'
+

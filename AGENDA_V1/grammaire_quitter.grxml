@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar root="Aide" version="1.0" xml:lang="fr">
+<grammar root="Quitter" version="1.0" xml:lang="fr">
 
   <meta name="description" content="grammaire aide"/>
   <meta name="author" content="Belgnaoui Othman"/>
   <meta name="copyright" content="SRI UPSSITECH"/>
 
-  <rule id="Aide" >
-        <item repeat="0-1"> sors moi de la </item>
-        <item repeat="0-1"> quitter </item>
-        <item repeat="0-1"> au revoir </item>
-        <item repeat="0-1"> bye </item>
-        <item repeat="0-1"> hasta luego </item>
-        <item repeat="0-1"> pitie </item>
-        <item repeat="0-1"> il est dix sept heure quarante cinq </item>
-        <item repeat="0-1"> sept heure quarante cinq </item>
-        <item repeat="0-1"> cyprien </item>
-        <item repeat="0-1"> tolotra </item>
-        <item repeat="0-1"> jpp </item>
+  <rule id="Quitter" scope = "public">
+  <one-of>
+        <item > sors moi de la </item>
+        <item > quitter </item>
+        <item > au revoir </item>
+        <item > bye </item>
+        <item > hasta luego </item>
+        <item > pitie </item>
+        <item > il est dix sept heure quarante cinq </item>
+        <item > sept heure quarante cinq </item>
+        <item > cyprien </item>
+        <item > tolotra </item>
+        <item > jpp </item>
+        </one-of>
   </rule>
 
 </grammar>

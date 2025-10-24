@@ -190,5 +190,51 @@ Au revoir !
 </field>
 
 
+<field name="horaire">
+
+	 <prompt> A quelle heure est la reservation ? </prompt>
+
+         <grammar src="grammaire_horaire.grxml" type="application/srgs+xml"/>
+
+         <help> Donnez une heure, par exemple "midi moins le quart" ou "quatorze heures trente". </help>
+         <noinput> Je n'ai pas entendu. A quelle heure ? </noinput>
+	 <nomatch> Je n'ai pas compris. Pouvez-vous me donner une heure S.V.P ? </nomatch>
+
+         <filled>
+	         L'horaire est <value expr="horaire.H" /> heures et <value expr="horaire.MN" /> minutes.
+
+                 <if cond="mode_trace=='True'">
+                  
+                   TRACE HORAIRE RECONNU : <value expr="horaire.text" />
+                   
+                   TRACE H: <value expr="horaire.H" />, MN: <value expr="horaire.MN" />, TotalMin: <value expr="horaire.NTOT_MIN" />
+                 </if>    
+	 </filled>
+</field>
+
+<field name="confirm_horaire">
+         <prompt> Pouvez-vous me confirmer cet horaire ? </prompt>
+         
+         <grammar src="grammaire_act_lang_confirmation_v2.grxml" type="application/srgs+xml" />
+         
+         <help> Repondez par oui ou non </help>
+         <noinput> Je n'ai pas entendu. Pouvez-vous repeter ? </noinput>
+         <nomatch> Je ne vous ai pas compris. Pouvez-vous repondre par oui ou par non </nomatch>
+         
+         <filled>
+                 <if cond="confirm_horaire=='True'">
+                     <assign name="message_confirm" expr="'TRACE Horaire confirme'" />
+                 <else/>
+                     <assign name="message_confirm" expr="'TRACE Horaire non confirme'" />
+                     <clear namelist="horaire confirm_horaire" />
+                 </if>
+                 
+                 <if cond="mode_trace=='True'">
+                   TRACE Reponse <value expr="message_confirm" />
+                 </if>
+         </filled>
+</field>
+
+
 </form>
 </vxml>

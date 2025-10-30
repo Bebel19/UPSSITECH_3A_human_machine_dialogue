@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar version="1.0" root="horaire" xml:lang="fr"
+  xmlns="http://www.w3.org/2001/srgs"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.w3.org/2001/srgs http://www.w3.org/TR/speech-grammar/srgs.xsd"
+  mode="voice">
+
+<meta name="description" content="grammaire horaire v2"/>
+<meta name="author" content="Belgnaoui Othman / Corrigé par Gemini"/>
+<meta name="copyright" content="free for any purpose"/>
+
+  <rule id="horaire" scope="public">
+    <one-of>
+      
+      <item> 
+        midi 
+        <tag>
+          out.H = 12;
+          [cite_start]out.MN = 0; [cite: 81]
+          out.NTOT_MIN = 720;
+          out.text = "midi";
+        </tag>
+      </item>
+      <item> 
+        minuit 
+        <tag>
+          out.H = 0;
+          [cite_start]out.MN = 0; [cite: 82]
+          out.NTOT_MIN = 0;
+          out.text = "minuit";
+        </tag>
+      </item>
+
+      <item>
+        <ruleref uri="#heures"/>
+        <tag>
+          out.H = rules.heures.nb;
+          [cite_start]out.MN = 0; [cite: 83]
+          out.NTOT_MIN = rules.heures.nb * 60;
+          [cite_start]out.text = rules.heures.text; [cite: 84]
+        </tag>
+      </item>
+
+      <item>
+        <ruleref uri="#heures"/>
+        <ruleref uri="#minutes_add"/>
+        <tag>
+          out.H = rules.heures.nb;
+          [cite_start]out.MN = rules.minutes_add.nb; [cite: 85]
+          out.NTOT_MIN = (rules.heures.nb * 60) + rules.minutes_add.nb;
+          [cite_start]out.text = rules.heures.text + " " + rules.minutes_add.text; [cite: 86]
+        </tag>
+      </item>
+
+      <item>
+        <ruleref uri="#heures"/>
+        <ruleref uri="#minutes_sub"/>
+        <tag>
+          // Gestion spéciale pour "minuit moins le quart"
+          var h_val = rules.heures.nb;
+          if (h_val == 0) { h_val = 24; [cite_start]} // Traiter minuit comme la 24ème heure [cite: 87]
+
+          [cite_start]var total_min = (h_val * 60) - rules.minutes_sub.nb; [cite: 88]
+          out.H = Math.floor(total_min / 60) % 24; [cite_start]// (ex: 11) [cite: 89]
+          out.MN = total_min % 60;
+ [cite_start]// (ex: 45) [cite: 90]
+          out.NTOT_MIN = total_min;
+ [cite_start]// (ex: 705) [cite: 91]
+          out.text = rules.heures.text + " " + rules.minutes_sub.text;
+        </tag>
+      </item>
+      
+    </one-of>
+  </rule>
+
+  <rule id="heures">
+    <one-of>
+      <item> minuit <tag> out.nb = 0; out.text = "minuit"; [cite_start]</tag> </item> [cite: 92]
+      <item> une heure <tag> out.nb = 1; out.text = "une heure"; [cite_start]</tag> </item> [cite: 93]
+      <item> deux heures <tag> out.nb = 2; out.text = "deux heures"; [cite_start]</tag> </item> [cite: 94]
+      <item> trois heures <tag> out.nb = 3; out.text = "trois heures"; [cite_start]</tag> </item> [cite: 95]
+      <item> quatre heures <tag> out.nb = 4; out.text = "quatre heures"; [cite_start]</tag> </item> [cite: 96]
+      <item> cinq heures <tag> out.nb = 5; out.text = "cinq heures"; [cite_start]</tag> </item> [cite: 97]
+      <item> six heures <tag> out.nb = 6; out.text = "six heures"; [cite_start]</tag> </item> [cite: 98]
+      <item> sept heures <tag> out.nb = 7; out.text = "sept heures"; [cite_start]</tag> </item> [cite: 99]
+      <item> huit heures <tag> out.nb = 8; out.text = "huit heures"; [cite_start]</tag> </item> [cite: 100]
+      <item> neuf heures <tag> out.nb = 9; out.text = "neuf heures"; [cite_start]</tag> </item> [cite: 101]
+      <item> dix heures <tag> out.nb = 10; out.text = "dix heures"; [cite_start]</tag> </item> [cite: 102]
+      <item> onze heures <tag> out.nb = 11; out.text = "onze heures"; [cite_start]</tag> </item> [cite: 103]
+      <item> midi <tag> out.nb = 12; out.text = "midi"; [cite_start]</tag> </item> [cite: 104]
+      <item> treize heures <tag> out.nb = 13; out.text = "treize heures"; [cite_start]</tag> </item> [cite: 105]
+      <item> quatorze heures <tag> out.nb = 14; out.text = "quatorze heures"; [cite_start]</tag> </item> [cite: 106]
+      <item> quinze heures <tag> out.nb = 15; out.text = "quinze heures"; [cite_start]</tag> </item> [cite: 107]
+      <item> seize heures <tag> out.nb = 16; out.text = "seize heures"; [cite_start]</tag> </item> [cite: 108]
+      <item> dix-sept heures <tag> out.nb = 17; out.text = "dix-sept heures"; [cite_start]</tag> </item> [cite: 109]
+      <item> dix-huit heures <tag> out.nb = 18; out.text = "dix-huit heures"; [cite_start]</tag> </item> [cite: 110]
+      <item> dix-neuf heures <tag> out.nb = 19; out.text = "dix-neuf heures"; [cite_start]</tag> </item> [cite: 111]
+      <item> vingt heures <tag> out.nb = 20; out.text = "vingt heures"; [cite_start]</tag> </item> [cite: 112]
+      <item> vingt et une heure <tag> out.nb = 21; out.text = "vingt et une heure"; [cite_start]</tag> </item> [cite: 113]
+      <item> vingt-deux heures <tag> out.nb = 22; out.text = "vingt-deux heures"; [cite_start]</tag> </item> [cite: 114]
+      <item> vingt-trois heures <tag> out.nb = 23; out.text = "vingt-trois heures"; [cite_start]</tag> </item> [cite: 115]
+    </one-of>
+  </rule>
+
+  <rule id="minutes_add">
+    <item repeat="0-1"> <ruleref uri="#prefix_et"/> </item>
+    <ruleref uri="#minutes_val"/>
+    <tag>
+      [cite_start]out.nb = rules.minutes_val.nb; [cite: 116]
+      [cite_start]out.text = (rules.prefix_et ? rules.prefix_et.text + " " : "") + rules.minutes_val.text; [cite: 117]
+    </tag>
+  </rule>
+
+  <rule id="minutes_sub">
+    <ruleref uri="#prefix_moins"/>
+    <ruleref uri="#minutes_val"/>
+    <tag>
+      out.nb = rules.minutes_val.nb;
+      [cite_start]out.text = rules.prefix_moins.text + " " + rules.minutes_val.text; [cite: 118]
+    </tag>
+  </rule>
+
+  <rule id="minutes_val">
+    <one-of>
+      <item> quart <tag> out.nb = 15; out.text = "quart"; [cite_start]</tag> </item> [cite: 119]
+      <item> demie <tag> out.nb = 30; out.text = "demie"; [cite_start]</tag> </item> [cite: 120]
+      <item>
+        <ruleref uri="grammaire_nombre_v3.grxml#nombre"/>
+        <tag> out.nb = rules.nombre.nb; out.text = rules.nombre.text; [cite_start]</tag> [cite: 121]
+      </item>
+    </one-of>
+  </rule>
+
+  <rule id="prefix_et">
+    <item> et <tag> out.text = "et"; [cite_start]</tag> </item> [cite: 122]
+  </rule>
+
+  <rule id="prefix_moins">
+    <one-of>
+      <item> moins <tag> out.text = "moins"; [cite_start]</tag> </item> [cite: 123]
+      <item> moins le <tag> out.text = "moins le"; [cite_start]</tag> </item> [cite: 124]
+    </one-of>
+  </rule>
+
+</grammar>

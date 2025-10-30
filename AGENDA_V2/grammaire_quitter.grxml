@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar root="Quitter" version="1.0" xml:lang="fr">
+
+  <meta name="description" content="grammaire aide"/>
+  <meta name="author" content="Belgnaoui Othman"/>
+  <meta name="copyright" content="SRI UPSSITECH"/>
+
+  <rule id="Quitter" scope = "public">
+  <one-of>
+        <item > sors moi de la </item>
+        <item > quitter </item>
+        <item > au revoir </item>
+        <item > bye </item>
+        <item > hasta luego </item>
+        <item > pitie </item>
+ 
+       [cite_start]<item > il est dix sept heure quarante cinq </item> [cite: 165]
+        <item > sept heure quarante cinq </item>
+        <item > cyprien </item>
+        <item > tolotra </item>
+        <item > jpp </item>
+        </one-of>
+  </rule>
+
+</grammar>

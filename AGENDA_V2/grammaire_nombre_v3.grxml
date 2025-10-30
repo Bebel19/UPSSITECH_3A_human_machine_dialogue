@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar version="1.0" root="nombre" xml:lang="fr">
+
+<meta name="description" content="grammaire nombres"/>
+<meta name="author" content="Isabelle Ferrane"/>
+<meta name="copyright" content="free for any purpose"/>
+
+<rule id="nombre" scope="public">
+[cite_start][cite: 3]
+<one-of>
+			<item> zero
+                                       <tag> out.nb = 0 ;
+ [cite_start]out.text = meta.current().text</tag> [cite: 4]
+                                </item>
+				<item> un      
+                                       <tag> out.nb = 1 ;
+ [cite_start]out.text = meta.current().text</tag> [cite: 5]
+                                </item>
+
+                       <item> <ruleref uri="#chiffres" /> 
+                                 
+       [cite_start]<tag> out.nb = rules.chiffres.nb ; [cite: 6]
+ [cite_start]out.text = meta.current().text</tag> [cite: 7]
+                                </item>
+
+			<item> dix   
+                                       <tag> out.nb = 10 ;
+ [cite_start]out.text = meta.current().text </tag> [cite: 8]
+                                </item>
+				<item> onze  
+                                       <tag> out.nb = 11 ;
+ [cite_start]out.text = meta.current().text </tag> [cite: 9]
+                                </item>
+
+                        <item> <ruleref uri="#dizaines" />
+                                
+        [cite_start]<tag> out.nb = rules.dizaines.nb ; [cite: 10]
+ [cite_start]out.text = meta.dizaines.text</tag> [cite: 11]
+                                </item>
+
+                        <item> <ruleref uri="#centaines" /> 
+                                 
+       [cite_start]<tag> out.nb = rules.centaines.nb ; [cite: 12]
+ [cite_start]out.text = meta.centaines.text</tag> [cite: 13]
+                                </item>
+                                
+                        <item>
+					<ruleref uri="#chiffres" />
+					<tag> out.nb = rules.chiffres.nb 
+ [cite_start]; out.text = meta.chiffres.text </tag> [cite: 14]
+					<ruleref uri="#centaines" />
+                                        <tag> out.nb = ((out.nb -1) * 100) + rules.centaines.nb;
+ [cite_start]out.text = out.text + " " + meta.centaines.text ; [cite: 15]
+                                        </tag>
+				</item>
+
+			<item> <ruleref uri="#milliers" />
+				       <tag> out.nb = rules.milliers.nb ;
+ [cite_start]out.text = meta.milliers.text </tag> [cite: 16]
+                                </item>
+                        <item>
+					<ruleref uri="#chiffres" /> 
+					<tag> out.nb = rules.chiffres.nb ;
+ [cite_start]out.text = meta.chiffres.text</tag> [cite: 17]
+					<ruleref uri="#milliers" /> 
+					<tag> out.nb = ((out.nb -1) * 1000) + rules.milliers.nb;
+ [cite_start]out.text = out.text + " " + meta.milliers.text; [cite: 18]
+                                        </tag>
+				</item>
+			<item> 
+					dix <ruleref uri="#milliers" /> 
+					<tag> out.nb = (rules.milliers.nb + 9000) ;
+ [cite_start]out.text = meta.milliers.text</tag> [cite: 19]
+                                        <tag> out.nb = 9000 + rules.milliers.nb ;
+ [cite_start]out.text = "dix " + meta.milliers.text; [cite: 20]
+                                        </tag>
+				</item>
+                        <item>
+					onze <ruleref uri="#milliers" />
+                                        <tag> out.nb = 10000 + rules.milliers.nb ;
+ [cite_start]out.text = "onze " + meta.milliers.text; [cite: 21]
+                                        </tag>
+				</item>
+			<item> 
+					<ruleref uri="#dizaines" />
+					<ruleref uri="#milliers" />
+					<tag> out.nb = ((rules.dizaines.nb -1)*1000) + rules.milliers.nb ;
+ [cite_start]out.text = meta.dizaines.text + " " + meta.milliers.text; [cite: 22]
+                                        </tag>
+				</item>
+			<item> 
+					<ruleref uri="#centaines" /> 
+					<ruleref uri="#milliers" /> 
+					<tag> out.nb = ((rules.centaines.nb -1)  * 1000) + rules.milliers.nb;
+ [cite_start]out.text = meta.centaines.text + " " + meta.milliers.text; [cite: 23]
+                                        </tag>
+				</item>
+        </one-of>
+
+</rule>
+	<rule id="chiffres">
+			<one-of>
+				<item> deux      <tag> out.nb = 2 ; [cite_start]</tag> </item> [cite: 24]
+				<item> trois     <tag> out.nb = 3 ; [cite_start]</tag> </item> [cite: 25]
+				<item> quatre    <tag> out.nb = 4 ; [cite_start]</tag> </item> [cite: 26]
+				<item> cinq      <tag> out.nb = 5 ; [cite_start]</tag> </item> [cite: 27]
+				<item> six       <tag> out.nb = 6 ; [cite_start]</tag> </item> [cite: 28]
+				<item> sept      <tag> out.nb = 7 ; [cite_start]</tag> </item> [cite: 29]
+				<item> huit      <tag> out.nb = 8 ; [cite_start]</tag> </item> [cite: 30]
+				<item> neuf      <tag> out.nb = 9 ; [cite_start]</tag> </item> [cite: 31]
+			</one-of>
+                        <tag> out.text = meta.current().text </tag>
+		</rule>
+	<rule id="dizaines">
+			<one-of>
+				<item> <ruleref uri="#dizaines1" /> 
+                                       <tag> out.nb = rules.dizaines1.nb;
+ [cite_start]out.text = meta.dizaines1.text; [cite: 32]
+                                       </tag>
+                                </item>
+				<item> <ruleref uri="#dizaines2" /> 
+                                       <tag> out.nb = rules.dizaines2.nb;
+ [cite_start]out.text = meta.dizaines2.text; [cite: 33]
+                                       </tag>
+                                </item>
+				<item> <ruleref uri="#dizaines3" /> 
+                                       <tag> out.nb = rules.dizaines3.nb;
+ [cite_start]out.text = meta.dizaines3.text; [cite: 34]
+                                       </tag>
+                                </item>
+				<item> <ruleref uri="#dizaines4" /> 
+                                       <tag> out.nb = rules.dizaines4.nb;
+ [cite_start]out.text = meta.dizaines4.text; [cite: 35]
+                                       </tag>
+                                </item>
+			</one-of>
+		</rule>
+
+		<rule id="dizaines1">
+			<one-of>
+				<item> douze          <tag> out.nb = 12; [cite_start]</tag> </item> [cite: 36]
+				<item> treize         <tag> out.nb = 13; [cite_start]</tag> </item> [cite: 37]
+				<item> quatorze       <tag> out.nb = 14; [cite_start]</tag> </item> [cite: 38]
+				<item> quinze         <tag> out.nb = 15; [cite_start]</tag> </item> [cite: 39]
+				<item> seize          <tag> out.nb = 16; [cite_start]</tag> </item> [cite: 40]
+				<item> dix sept       <tag> out.nb = 17; [cite_start]</tag> </item> [cite: 41]
+				<item> dix huit       <tag> out.nb = 18; [cite_start]</tag> </item> [cite: 42]
+				<item> dix neuf       <tag> out.nb = 19; [cite_start]</tag> </item> [cite: 43]
+			</one-of>
+			<tag> out.text = meta.current().text + " "  </tag>
+		</rule>
+
+		<rule id="dizaines2">
+			<one-of>
+				<item> vingt          <tag> out.nb = 20; [cite_start]</tag> </item> [cite: 44]
+				<item> trente         <tag> out.nb = 30; [cite_start]</tag> </item> [cite: 45]
+				<item> quarante       <tag> out.nb = 40; [cite_start]</tag> </item> [cite: 46]
+				<item> cinquante      <tag> out.nb = 50; [cite_start]</tag> </item> [cite: 47]
+				<item> soixante       <tag> out.nb = 60; [cite_start]</tag> </item> [cite: 48]
+			</one-of>
+			<tag> out.text = meta.current().text + " "  </tag>
+		</rule>
+		<rule id="dizaines3">
+			<one-of>
+				<item> soixante dix         <tag> out.nb = 70; [cite_start]</tag> </item> [cite: 49]
+				<item> quatre vingt         <tag> out.nb = 80; [cite_start]</tag> </item> [cite: 50]
+                                <item> quatre vingts        <tag> out.nb = 80; [cite_start]</tag> </item> [cite: 51]
+				<item> quatre vingt dix     <tag> out.nb = 90; [cite_start]</tag> [cite: 52]
+                                </item>
+			</one-of>
+			<tag> out.text = meta.current().text + " "  </tag>
+		</rule>
+		<rule id="dizaines4">
+			<one-of>
+				<item> <ruleref uri="#dizaines2" /> et un 
+                                       <tag> out.nb = rules.dizaines2.nb + 1;
+ [cite_start]out.text = meta.dizaines2.text + "et un"; [cite: 53]
+                                       </tag>
+                                </item>
+				<item> 
+					<ruleref uri="#dizaines2" />
+					<ruleref uri="#chiffres" />
+                                        <tag> out.nb = rules.dizaines2.nb + rules.chiffres.nb ;
+ [cite_start]out.text = meta.dizaines2.text + meta.chiffres.text; [cite: 54]
+                                        </tag>
+				</item> 
+				<item> soixante et onze       
+                                       <tag> out.nb = 71;
+ out.text = "soixante et onze ";   [cite_start]</tag> [cite: 55]
+                                </item>
+				<item> soixante <ruleref uri="#dizaines1" /> 
+                                       <tag> out.nb = 60 + rules.dizaines1.nb;
+ [cite_start]out.text = "soixante " + meta.dizaines1.text; [cite: 56]
+                                       </tag>
+                                </item>
+				<item> quatre vingt un        
+                                       <tag> out.nb = 81;
+ out.text = "";  out.text = "quatre vingt un "; [cite_start]</tag> [cite: 57]
+                                </item>
+				<item> 
+					quatre vingt <ruleref uri="#chiffres" /> 
+					<tag> out.nb = 80 + rules.chiffres.nb;
+ [cite_start]out.text = "quatre vingt " + meta.chiffres.text; [cite: 58]
+                                        </tag>
+				</item> 
+				<item> quatre vingt onze 
+                                       <tag> out.nb = 91;
+ out.text = "quatre vingt onze "; [cite_start]</tag> [cite: 59]
+                                </item>
+				<item> quatre vingt <ruleref uri="#dizaines1" /> 
+                                       <tag> out.nb = 80 + rules.dizaines1.nb;
+ [cite_start]out.text = "quatre vingt " + meta.dizaines1.text; [cite: 60]
+                                       </tag>
+                                </item>
+			</one-of>
+		</rule>
+
+	<rule id="centaines">
+			<one-of>
+				<item> cent  <tag> out.nb = 100 ;
+ out.text = meta.current().text + " "; [cite_start]</tag> [cite: 61]
+                                </item>
+				<item> <ruleref uri="#centaines1" /> 
+                                       <tag> out.nb = rules.centaines1.nb ;
+ [cite_start]out.text = meta.centaines1.text </tag> [cite: 62]
+                                </item>
+                                	<item> <ruleref uri="#chiffres" />
+                        
+                [cite_start]<one-of> [cite: 63]
+                                                <item> cents <tag> out.text = meta.chiffres.text + "cents "; [cite_start]</tag> </item> [cite: 64]
+                                                <item> cent  <tag> out.text = meta.chiffres.text + "cent "; [cite_start]</tag> </item> [cite: 65]
+                                       </one-of>
+                                       <tag> out.nb = rules.chiffres.nb * 100; [cite_start]</tag> [cite: 66]
+                                </item>
+                                	<item> 
+					<ruleref uri="#chiffres" /> 
+					<ruleref uri="#centaines1" />
+					<tag> out.nb = ((rules.chiffres.nb - 1)* 100) + rules.centaines1.nb;
+ [cite_start]out.text = meta.chiffres.text + " " + meta.centaines1.text; [cite: 67]
+                                        </tag>
+				 </item>
+			</one-of>
+		</rule>
+
+		<rule id="centaines1">
+			<one-of>
+				<item> cent un     <tag> out.nb = 101; out.text = "cent un "; [cite_start]</tag> </item> [cite: 68]
+			   <item> cent <ruleref uri="#chiffres" /> 
+                                       <tag> out.nb = 100 + rules.chiffres.nb;
+ out.text = "cent " + meta.chiffres.text; [cite_start]</tag> [cite: 69]
+                                </item>
+				<item> cent dix   <tag> out.nb = 110; out.text = "cent dix "; [cite_start]</tag> </item> [cite: 70]
+				<item> cent onze  <tag> out.nb = 111; out.text = "cent onze "; [cite_start]</tag> </item> [cite: 71]
+			   <item> cent <ruleref uri="#dizaines" />
+                                       <tag> out.nb = 100 + rules.dizaines.nb;
+ out.text = "cent " + meta.dizaines.text; [cite_start]</tag> [cite: 72]
+                                </item>
+			</one-of>
+		</rule>
+
+	<rule id="milliers">
+		      	<one-of>
+				<item> mille      <tag> out.nb = 1000; out.text = "mille "; [cite_start]</tag> </item> [cite: 73]
+				<item> mille un   <tag> out.nb = 1001; out.text = "mille un "; [cite_start]</tag> </item> [cite: 74]
+					<item> mille <ruleref uri="#chiffres" /> 
+				       <tag> out.nb = 1000 + rules.chiffres.nb;
+ [cite_start]out.text = "mille " + meta.chiffres.text; [cite: 75]
+                                       </tag>
+                                </item>
+                                	[cite_start]<item> mille dix  <tag> out.nb = 1010; out.text = "mille dix ";</tag> </item> [cite: 76]
+				<item> mille onze <tag> out.nb = 1011; out.text = "mille onze "; [cite_start]</tag> </item> [cite: 77]
+				<item> mille <ruleref uri="#dizaines" /> 
+				       <tag> out.nb = 1000 + rules.dizaines.nb;
+ [cite_start]out.text = "mille " + meta.dizaines.text; [cite: 78]
+                                       </tag>
+                                </item>
+                                	<item> mille <ruleref uri="#centaines" />
+				       <tag> out.nb = 1000 + rules.centaines.nb ;
+ [cite_start]out.text = "mille " + meta.centaines.text; [cite: 79]
+                                       </tag>
+                                </item>
+			</one-of>
+		</rule>
+</grammar>

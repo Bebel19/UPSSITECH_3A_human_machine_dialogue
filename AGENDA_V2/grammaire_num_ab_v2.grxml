@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar version="1.0" root="num_ab" xml:lang="fr">
+
+<meta name="description" content="grammaire numero abonne"/>
+<meta name="author" content="Isabelle Ferrane"/>
+<meta name="copyright" content="free for any purpose"/>
+
+<rule id="num_ab" scope="public">
+<one-of>
+     <item> <ruleref uri="#filler_debut_phrase" /> 
+            <ruleref uri="grammaire_nombre_v3.grxml#nombre" />
+                  
+   [cite_start]<tag> out.nb = rules.nombre.nb ; out.text = meta.nombre.text </tag> [cite: 447]
+     </item>
+     <item> <ruleref uri="grammaire_nombre_v3.grxml#nombre" /> 
+                     <tag> out.nb = rules.nombre.nb ;
+ [cite_start]out.text = meta.nombre.text </tag> </item> [cite: 448]
+</one-of>
+</rule>
+
+<rule id="filler_debut_phrase">
+      <one-of>
+              <item> c est  le </item>
+              <item> mon numero est le </item>
+              <item> le </item>
+              <item> je suis l abonne numero </item>
+              [cite_start]<item>  [cite: 449]
+je suis le </item>
+      </one-of>
+</rule>
+</grammar>

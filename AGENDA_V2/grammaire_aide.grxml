@@ -12,13 +12,12 @@
         <item repeat="0-1"> je voudrais de l </item>
         <item repeat="0-1"> je voudrais savoir </item>
         <one-of>
-      
- 	        [cite_start]<item> quoi faire </item> [cite: 452]
-      	        <item> faire quoi </item>
-      	        <item> faire </item>
-      	        <item> aider </item>
-      	        <item> aide </item>
-	</one-of>
+                  <item> quoi faire </item>
+                  <item> faire quoi </item>
+                  <item> faire </item>
+                  <item> aider </item>
+                  <item> aide </item>
+    </one-of>
   </rule>
 
 </grammar>
